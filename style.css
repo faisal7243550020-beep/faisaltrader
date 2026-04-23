@@ -20,6 +20,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    overflow: hidden;
 }
 
 .ul-navbar {
@@ -29,23 +30,29 @@ body {
     align-items: center;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 10px; 
+    gap: 0; 
+    flex-wrap: nowrap; 
 }
 
 .li-navbar {
-    margin: 0 15px;
+    margin: 0 8px; 
+    white-space: nowrap; 
+    flex-shrink: 0; 
 }
 
 .a-navbar {
     color: aliceblue !important;
     text-decoration: none;
     font-weight: 600;
-    font-size: 16px;
-    padding: 12px 24px !important;
+    font-size: clamp(12px, 2.5vw, 16px); 
+    padding: 10px 18px !important; 
     border-radius: 25px;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    white-space: nowrap; 
+    line-height: 1.2; 
 }
 
 .a-navbar:hover {
@@ -55,87 +62,41 @@ body {
     color: white !important;
 }
 
-.container-content {
-    padding-top: 40px !important;
-    padding-bottom: 20px;
-}
-
-.img-content {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    border: 8px solid #613e06;
-    box-shadow: 0 15px 35px rgba(97,62,6,0.5);
-    transition: transform 0.3s ease;
-    background-color: white; 
-}
-
-.img-content:hover {
-    transform: scale(1.05);
-}
-
-.card {
-    background-color: rgba(255, 228, 196, 0.95) !important; 
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(97, 62, 6, 0.3) !important;
-}
-
-.card-header {
-    background: linear-gradient(135deg, #613e06, #8b5a2b) !important;
-    color: white !important;
-    border: none !important;
-}
-
-.table {
-    background-color: white !important;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.table-dark {
-    background: linear-gradient(135deg, #613e06, #8b5a2b) !important;
-}
-
-.form-control, .form-control-color {
-    background-color: rgba(255, 255, 255, 0.9) !important;
-    border: 2px solid #613e06 !important;
-    border-radius: 12px !important;
-    transition: all 0.3s ease;
-}
-
-.form-control:focus, .form-control-color:focus {
-    border-color: #8b5a2b !important;
-    box-shadow: 0 0 0 0.2rem rgba(97, 62, 6, 0.25) !important;
+@media (max-width: 992px) {
+    .container-navbar {
+        height: 75px;
+    }
+    
+    .a-navbar {
+        padding: 8px 14px !important;
+        font-size: clamp(11px, 2.2vw, 14px);
+        letter-spacing: 0.3px;
+    }
+    
+    .li-navbar {
+        margin: 0 6px;
+    }
 }
 
 @media (max-width: 768px) {
     .container-navbar {
         height: 70px;
+        padding: 0 5px;
     }
     
     .ul-navbar {
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px 0;
+        justify-content: space-around;
+        padding: 0 5px;
     }
     
     .li-navbar {
-        margin: 0 !important;
+        margin: 0 3px !important;
     }
     
     .a-navbar {
-        padding: 10px 20px !important;
-        font-size: 14px !important;
-    }
-    
-    .img-content {
-        max-width: 250px;
-        border-width: 6px;
-    }
-    
-    .card {
-        margin: 0 10px;
+        padding: 6px 12px !important;
+        font-size: clamp(10px, 2vw, 13px);
+        border-radius: 20px;
     }
 }
 
@@ -144,29 +105,40 @@ body {
         height: 65px;
     }
     
-    .a-navbar {
-        padding: 8px 16px !important;
-        font-size: 13px !important;
+    .ul-navbar {
+        flex-direction: row; 
+        justify-content: space-evenly;
+        gap: 2px;
     }
     
-    .display-4 {
-        font-size: 2rem !important;
+    .li-navbar {
+        margin: 0 !important;
+        flex: 1; 
+        max-width: 80px; 
+    }
+    
+    .a-navbar {
+        padding: 8px 8px !important; 
+        font-size: clamp(9px, 1.8vw, 12px);
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        border-radius: 15px;
+        text-align: center;
     }
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 228, 196, 0.8);
-}
-
-::-webkit-scrollbar-thumb {
-    background: #613e06;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #8b5a2b;
+@media (max-width: 400px) {
+    .container-navbar {
+        height: 60px;
+    }
+    
+    .a-navbar {
+        padding: 6px 6px !important;
+        font-size: 10px;
+        border-radius: 12px;
+    }
+    
+    .li-navbar {
+        max-width: 70px;
+    }
 }
